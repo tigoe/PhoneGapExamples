@@ -1,0 +1,27 @@
+/Users/tigoe/Documents/github/PhoneGapExamples/accelExample/platforms/android/bin/accelExample.ap_ \
+ : /Users/tigoe/Documents/github/PhoneGapExamples/accelExample/platforms/android/res/drawable/icon.png \
+/Users/tigoe/Documents/github/PhoneGapExamples/accelExample/platforms/android/res/drawable-hdpi/icon.png \
+/Users/tigoe/Documents/github/PhoneGapExamples/accelExample/platforms/android/res/drawable-ldpi/icon.png \
+/Users/tigoe/Documents/github/PhoneGapExamples/accelExample/platforms/android/res/drawable-mdpi/icon.png \
+/Users/tigoe/Documents/github/PhoneGapExamples/accelExample/platforms/android/res/drawable-xhdpi/icon.png \
+/Users/tigoe/Documents/github/PhoneGapExamples/accelExample/platforms/android/res/values/strings.xml \
+/Users/tigoe/Documents/github/PhoneGapExamples/accelExample/platforms/android/res/xml/config.xml \
+/Users/tigoe/Documents/github/PhoneGapExamples/accelExample/platforms/android/bin/res/drawable/icon.png \
+/Users/tigoe/Documents/github/PhoneGapExamples/accelExample/platforms/android/bin/res/drawable-hdpi/icon.png \
+/Users/tigoe/Documents/github/PhoneGapExamples/accelExample/platforms/android/bin/res/drawable-ldpi/icon.png \
+/Users/tigoe/Documents/github/PhoneGapExamples/accelExample/platforms/android/bin/res/drawable-mdpi/icon.png \
+/Users/tigoe/Documents/github/PhoneGapExamples/accelExample/platforms/android/bin/res/drawable-xhdpi/icon.png \
+/Users/tigoe/Documents/github/PhoneGapExamples/accelExample/platforms/android/assets/www \
+/Users/tigoe/Documents/github/PhoneGapExamples/accelExample/platforms/android/assets/www/config.xml \
+/Users/tigoe/Documents/github/PhoneGapExamples/accelExample/platforms/android/assets/www/cordova.js \
+/Users/tigoe/Documents/github/PhoneGapExamples/accelExample/platforms/android/assets/www/cordova_plugins.js \
+/Users/tigoe/Documents/github/PhoneGapExamples/accelExample/platforms/android/assets/www/index.html \
+/Users/tigoe/Documents/github/PhoneGapExamples/accelExample/platforms/android/assets/www/js \
+/Users/tigoe/Documents/github/PhoneGapExamples/accelExample/platforms/android/assets/www/plugins \
+/Users/tigoe/Documents/github/PhoneGapExamples/accelExample/platforms/android/assets/www/style.css \
+/Users/tigoe/Documents/github/PhoneGapExamples/accelExample/platforms/android/assets/www/js/index.js \
+/Users/tigoe/Documents/github/PhoneGapExamples/accelExample/platforms/android/assets/www/plugins/org.apache.cordova.device-motion \
+/Users/tigoe/Documents/github/PhoneGapExamples/accelExample/platforms/android/assets/www/plugins/org.apache.cordova.device-motion/www \
+/Users/tigoe/Documents/github/PhoneGapExamples/accelExample/platforms/android/assets/www/plugins/org.apache.cordova.device-motion/www/Acceleration.js \
+/Users/tigoe/Documents/github/PhoneGapExamples/accelExample/platforms/android/assets/www/plugins/org.apache.cordova.device-motion/www/accelerometer.js \
+/Users/tigoe/Documents/github/PhoneGapExamples/accelExample/platforms/android/bin/AndroidManifest.xml \
