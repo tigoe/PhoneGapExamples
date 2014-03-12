@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Simple Serial</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+
+    <body>
+        <div class="app">
+        <p><select id ="selectDevice"></select></p>
+            <div id="ui">
+               <p> <button id="connectButton">Connect</button></p>
+               <p> <button id="latchButton">Open</button></p>
+            </div>
+        <div id="message">Hello BluetoothSerial</div>
+        
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script>
+            app.initialize();
+        </script>
+    </body>
+</html>

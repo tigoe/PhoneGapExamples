@@ -1,0 +1,54 @@
+nclude $(TOPDIR)/rules.mk
+
+PKG_NAME:=bluez
+PKG_VERSION:=5.13
+PKG_RELEASE:=1
+
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_SOURCE_URL:=http://www.kernel.org/pub/linux/bluetooth
+PKG_MD5SUM:=1a2b9ada9bd6542f6efee413aed280d9
+
+PKG_FIXUP:=autoreconf
+
+include $(INCLUDE_DIR)/package.mk
+include $(INCLUDE_DIR)/nls.mk
+
+define Package/bluez
+SECTION:=utils
+CATEGORY:=Utilities
+DEPENDS:=+libpthread +libusb-compat +glib2 +dbus +udev $(INTL_DEPENDS) $(ICONV_DEPENDS)
+TITLE:=Bluetooth stack new version 
+URL:=http://www.bluez.org/
+endef
+
+define Package/bluez/conffiles
+/etc/config/bluetooth
+endef
+
+CONFIGURE_ARGS += \
+--enable-library \
+--disable-systemd \
+--disable-monitor \
+--disable-cups \
+--disable-client \
+--disable-obex \
+--enable-usb \
+--with-usb=yes \
+--with-udevdir="$(STAGING_DIR)/lib/udev"
+
+define Build/Compile
+$(MAKE) -C $(PKG_BUILD_DIR) \
+LDFLAGS="$(TARGET_LDFLAGS) \
+-L$(ICONV_PREFIX)/lib \
+-L$(INTL_PREFIX)/lib -lm" \
+DESTDIR="$(PKG_INSTALL_DIR)" \
+all install
+endef
+
+define Package/bluez/install
+$(INSTALL_DIR) $(1)/usr/bin
+$(CP) $(PKG_INSTALL_DIR)/usr/bin/hciconfig $(1)/usr/bin/
+$(CP) $(PKG_INSTALL_DIR)/usr/bin/hcitool $(1)/usr/bin/
+endef
+
+$(eval $(call BuildPackage,bluez))

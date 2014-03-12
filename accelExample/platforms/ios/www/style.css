@@ -1,0 +1,12 @@
+body {
+	font-size: 48px;
+	background: #001146;
+	color: #dddddd
+	
+}
+
+#messageDiv {
+	position: fixed;
+	top: 10;
+	left: 20
+}
