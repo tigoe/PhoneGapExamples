@@ -11,9 +11,6 @@
     <feature name="LocalStorage">
         <param name="ios-package" value="CDVLocalStorage" />
     </feature>
-    <feature name="BluetoothSerial">
-        <param name="ios-package" onload="true" value="MEGBluetoothSerial" />
-    </feature>
     <feature name="Console">
         <param name="ios-package" value="CDVLogger" />
     </feature>
@@ -32,4 +29,7 @@
     <preference name="BackupWebStorage" value="cloud" />
     <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="true" />
+    <feature name="BluetoothSerial">
+        <param name="ios-package" onload="true" value="MEGBluetoothSerial" />
+    </feature>
 </widget>

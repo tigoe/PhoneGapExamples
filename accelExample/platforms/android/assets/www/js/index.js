@@ -42,8 +42,8 @@ var app = {
 			app.loc.y -= acceleration.y;
 			
 			// set the messageDiv style parameters using app.loc:
-			messageDiv.style.top = app.loc.y  + '%';
-			messageDiv.style.left = app.loc.x + '%';
+			//messageDiv.style.top = app.loc.y  + '%';
+			//messageDiv.style.left = app.loc.x + '%';
 		}
 			
 		function failure(error) {

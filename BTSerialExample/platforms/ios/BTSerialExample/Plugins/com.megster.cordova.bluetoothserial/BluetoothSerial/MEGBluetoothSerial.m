@@ -65,6 +65,7 @@
     
     NSLog(@"disconnect");
     
+    _connectCallbackId = nil;    
     CDVPluginResult *pluginResult = nil;
     pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
 
@@ -72,12 +73,10 @@
         if(_bleShield.activePeripheral.isConnected)
         {
             [[_bleShield CM] cancelPeripheralConnection:[_bleShield activePeripheral]];
-            return;
         }
     }
     
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-    _connectCallbackId = nil;
 }
 
 - (void)subscribe:(CDVInvokedUrlCommand*)command {
@@ -353,6 +352,7 @@
             NSString *uuid = [NSString stringWithCString:CFStringGetCStringPtr(s, 0)
                                                 encoding:(NSStringEncoding)NSUTF8StringEncoding];
             [peripheral setObject: uuid forKey: @"uuid"];
+            [peripheral setObject: uuid forKey: @"id"];
         }
         else {
             [peripheral setObject: @"" forKey: @"uuid"];

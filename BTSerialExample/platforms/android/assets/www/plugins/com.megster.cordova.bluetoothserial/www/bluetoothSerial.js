@@ -1,4 +1,4 @@
-cordova.define("com.megster.cordova.bluetoothserial.bluetoothSerial", function(require, exports, module) {/*global cordova*/
+cordova.define("com.megster.cordova.bluetoothserial.bluetoothSerial", function(require, exports, module) { /*global cordova*/
 module.exports = {
 
     connect: function (macAddress, success, failure) {
@@ -68,4 +68,5 @@ module.exports = {
     }
 
 };
+
 });

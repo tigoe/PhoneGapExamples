@@ -7,5 +7,12 @@ module.exports = [
             "window.bluetoothSerial"
         ]
     }
-]
+];
+module.exports.metadata = 
+// TOP OF METADATA
+{
+    "org.apache.cordova.console": "0.2.7",
+    "com.megster.cordova.bluetoothserial": "0.3.0"
+}
+// BOTTOM OF METADATA
 });

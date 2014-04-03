@@ -15,6 +15,7 @@ var app = {
  */
     initialize: function() {
         this.bindEvents();
+        console.log("Starting BT Serial app");
     },
 /*
     bind any events that are required on startup to listeners:
@@ -37,6 +38,8 @@ var app = {
  
         //if isEnabled(), below, returns success:
         var listPorts = function() {
+        		app.clear();
+        		app.display("Searching for BT Serial devices...");
             // list the available BT ports:
             bluetoothSerial.list(
                 function(results) {
@@ -57,6 +60,9 @@ var app = {
                         address + '">' +
                         results[i].name +
                         ' </option>';  
+                    }
+                    if (results.length == 0) {
+	                    app.display("No BT Serial devices found");
                     }
                     // use the first item from the list as your address:
                     app.macAddress = selectDevice.options[selectDevice.selectedIndex].value;
@@ -127,7 +133,7 @@ var app = {
         // set up a listener to listen for newlines
         // and display any new data that's come in since
         // the last newline:
-        bluetoothSerial.subscribe('\n', function (data) {
+        bluetoothSerial.subscribe('\r\n', function (data) {
                app.clear();
                app.display(data);          
         });

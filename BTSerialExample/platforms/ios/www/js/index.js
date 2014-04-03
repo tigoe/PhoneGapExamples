@@ -1,15 +1,14 @@
 /*
     SimpleSerial index.js
     Created 7 May 2013
-    Modified 9 May 2013
-    by Tom Igoe
+    Modified 12 Mar 2014
+    by Tom Igoe and Robyn Overstreet
 */
 
 
 var app = {
-    macAddress: "",  // get your mac address from bluetoothSerial.list
-   // macAddress: "35FC44A4-9C7D-BF67-E226-C68147AA559B",  // get your mac address from bluetoothSerial.list
-     chars: "",
+    macAddress: "",  // get your mac address from bluetoothSerial.listPorts()
+    chars: "",
   
 /*
     Application constructor
@@ -23,21 +22,19 @@ var app = {
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
         connectButton.addEventListener('touchend', app.manageConnection, false);
-         latchButton.addEventListener('touchend', app.moveLatch, false);
-         selectDevice.addEventListener('change',app.PickDevice, false);
+        latchButton.addEventListener('touchend', app.moveLatch, false);
+        selectDevice.addEventListener('change',app.PickDevice, false);
     },
 
 /*
     this runs when the device is ready for user interaction:
 */
     onDeviceReady: function() {
-        // check to see if Bluetooth is turned on.
-        // this function is called only
-         
+        // check to see if Bluetooth is turned on.         
          var address;
      
         console.log('device ready!');
-        //console.log(''+ device.platform);
+ 
         //if isEnabled(), below, returns success:
         var listPorts = function() {
             // list the available BT ports:
@@ -45,23 +42,23 @@ var app = {
                 function(results) {
                     app.display(JSON.stringify(results));
                     app.display(results);
-                    //console.log(app.selectDevice.innerHTML);
-                    //app.display(document.getElementById('selectDevice').innerHTML);
-                    //document.getElementById('selectDevice').innerHTML += '<option value="test">choose</option>';
-                    
-                    for (i=0; i<results.length; i++){
+   
+   					// result is an array of JSON objects. 
+   					// iterate over it and pull out relevant elements.
+   					// on iOS, address is called uuid. On Android it's called address:                  
+                    for (i=0; i<results.length; i++) {
                     		if (results[i].uuid) {
 	                    		address = results[i].uuid;
                     		}
                     if (results[i].address) {
 	                    		address = results[i].address;
                     		}
-                        selectDevice.innerHTML += '<option value="' +
-                            address + '">' +
-                            results[i].name +
-                           ' </option>';
-                        
+                    selectDevice.innerHTML += '<option value="' +
+                        address + '">' +
+                        results[i].name +
+                        ' </option>';  
                     }
+                    // use the first item from the list as your address:
                     app.macAddress = selectDevice.options[selectDevice.selectedIndex].value;
                     app.display(selectDevice.options[selectDevice.selectedIndex].value);                
                 },
@@ -86,13 +83,12 @@ var app = {
     Connects if not connected, and disconnects if connected:
 */
     manageConnection: function() {
-
         // connect() will get called only if isConnected() (below)
         // returns failure. In other words, if not connected, then connect:
         var connect = function () {
             // if not connected, do this:
             // clear the screen and display an attempt to connect
-                    console.log("Attempting to connect...");
+            console.log("Attempting to connect...");
 
             app.clear();
             app.display("Attempting to connect. " +
@@ -132,12 +128,8 @@ var app = {
         // and display any new data that's come in since
         // the last newline:
         bluetoothSerial.subscribe('\n', function (data) {
-            //bluetoothSerial.readUntil('\n', function (data) {
-            // console.log(data);
                app.clear();
-               app.display(data);
-            //});
-            
+               app.display(data);          
         });
     },
 
@@ -158,13 +150,11 @@ var app = {
         );
     },
     
+    // send an x to move the latch:
     moveLatch: function() {
-      
-      
        bluetoothSerial.write('x', function() {
             app.clear();
-            app.display("Fired the latch");
-           
+            app.display("Fired the latch");           
         });
     },
     

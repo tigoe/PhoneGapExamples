@@ -7,7 +7,9 @@ Android uses Classic Bluetooth.  iOS uses Bluetooth Low Energy.
 ## Supported Platforms
 
 * Android
-* iOS with [BLEMini](http://redbearlab.com/blemini) or [BLEShield v1 or v2](http://redbearlab.com/bleshield/)
+* iOS with [BLEMini](http://redbearlab.com/blemini), [BLEShield](http://redbearlab.com/bleshield/) or [Adafruit Bluefruit LE](http://www.adafruit.com/products/1697)
+ 
+[Supporting other Bluetooth Low Energy hardware](#supporting-other-ble-hardware)
 
 ## Limitations
 
@@ -258,14 +260,16 @@ Example list passed to success callback.  See [BluetoothDevice](http://developer
 
     [{
         "class": 276,
+        "id": "10:BF:48:CB:00:00",        
         "address": "10:BF:48:CB:00:00",
         "name": "Nexus 7"
     }, {
         "class": 7936,
+        "id": "00:06:66:4D:00:00",        
         "address": "00:06:66:4D:00:00",
         "name": "RN42"
     }]
-    
+        
 #### iOS
 
 Function `list` lists the discovered Bluetooth Low Energy peripheral.  The success callback is called with a list of objects.
@@ -273,13 +277,16 @@ Function `list` lists the discovered Bluetooth Low Energy peripheral.  The succe
 Example list passed to success callback for iOS.
 
     [{
+        "id": "CC410A23-2865-F03E-FC6A-4C17E858E11E",        
         "uuid": "CC410A23-2865-F03E-FC6A-4C17E858E11E",
         "name": "Biscuit",
         "rssi": -68
     }]
     
 The advertised RSSI **may** be included if available.
-    
+
+`id` is the generic name for `uuid` or [mac]`address` so that code can be platform independent. 
+
 ### Parameters
 
 - __success__: Success callback function that is invoked with a list of bonded devices.
@@ -289,7 +296,7 @@ The advertised RSSI **may** be included if available.
 
     bluetoothSerial.list(function(devices) {
         devices.forEach(function(device) {
-            console.log(device.address);
+            console.log(device.id);
         })
     }, failure);
     
@@ -392,12 +399,18 @@ I highly recommend [Adafruit's Bluefruit EZ-Link](http://www.adafruit.com/produc
     
 ### iOS
 
-**NOTE: Currently iOS only works with RedBear Labs BLE Mini & BLE Shield Hardware**
+**NOTE: Currently iOS only works with RedBear Labs Hardware and Adafruit Bluefruit LE**
 
 This plugin is developed with Cordova 3.4 using iOS 7.x on an iPhone 5s connecting to a [RedBearLab BLEMini](http://redbearlab.com/blemini).
 
 Ensure that you have update the BLE Mini firmware to at least [Biscuit-UART_20130313.bin](https://github.com/RedBearLab/Biscuit/tree/master/release).
-    
+
+### Supporting other BLE hardware
+
+For Bluetooth Low Energy, this plugin supports the RedBear Labs hardware by default, but can support any Bluetooth Low Energy hardware with a "serial like" service. This means a transmit characteristic that is writable and a receive characteristic that supports notification.
+
+Edit [BLEdefines.h](src/ios/BLEDefines.h) and adjust the UUIDs for your service. 
+
 ## Props
 
 ### Android
@@ -414,7 +427,9 @@ The API for available, read, readUntil was influenced by the [BtSerial Library f
 
 ## Wrong Bluetooth Plugin?
 
-If you don't need **serial** over Bluetooth, try the [PhoneGap Bluetooth Plugin for Android](https://github.com/phonegap/phonegap-plugins/tree/DEPRECATED/Android/Bluetooth/2.2.0) or perhaps [phonegap-plugin-bluetooth](https://github.com/tanelih/phonegap-bluetooth-plugin)
+If you don't need **serial** over Bluetooth, try the [PhoneGap Bluetooth Plugin for Android](https://github.com/phonegap/phonegap-plugins/tree/DEPRECATED/Android/Bluetooth/2.2.0) or perhaps [phonegap-plugin-bluetooth](https://github.com/tanelih/phonegap-bluetooth-plugin).
+
+If you need generic Bluetooth Low Energy support checkout Rand Dusing's [BluetoothLE](https://github.com/randdusing/BluetoothLE).
 
 ## What format should the Mac Address be in?
 An example a properly formatted mac address is ``AA:BB:CC:DD:EE:FF``

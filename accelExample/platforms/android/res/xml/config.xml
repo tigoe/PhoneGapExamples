@@ -7,6 +7,8 @@
     <feature name="Accelerometer">
         <param name="android-package" value="org.apache.cordova.devicemotion.AccelListener" />
     </feature>
+    <preference name="useBrowserHistory" value="true" />
+    <preference name="exit-on-suspend" value="false" />
     <name>accelExample</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
@@ -16,8 +18,6 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
-    <preference name="useBrowserHistory" value="true" />
-    <preference name="exit-on-suspend" value="false" />
     <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="true" />
 </widget>

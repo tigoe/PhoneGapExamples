@@ -14,5 +14,11 @@ module.exports = [
             "navigator.accelerometer"
         ]
     }
-]
+];
+module.exports.metadata = 
+// TOP OF METADATA
+{
+    "org.apache.cordova.device-motion": "0.2.6"
+}
+// BOTTOM OF METADATA
 });
