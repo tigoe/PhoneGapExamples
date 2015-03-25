@@ -3,6 +3,5 @@ platforms/android/bin
 platforms/android/gen 
 platforms/android/assets/www
 *.xcuserstate
-platforms/ios
-platforms/android
-plugins
+accelExample/platforms/ios
+accelExample/platforms/android
