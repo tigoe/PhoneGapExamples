@@ -1,7 +1,3 @@
-platforms/android/local.properties 
-platforms/android/bin 
-platforms/android/gen 
-platforms/android/assets/www
-*.xcuserstate
-accelExample/platforms/ios/*
-accelExample/platforms/android/*
+accelExample/platforms/*
+BTSerialExample/platforms/*
+gameClient/platforms/*
